@@ -30,13 +30,17 @@ public class RaceControl implements Runnable{
 	public void run() {
 		List<Thread> race=new ArrayList<>();
 		List<VehicleMoving> carRace=new ArrayList<>();
-		this.start=new CyclicBarrier(cars.size(),new Refery(carRace));
+		this.start=new CyclicBarrier(cars.size()+1);
 		
 		for (int i=0;i<cars.size();i++){
 			carRace.add(i,new VehicleMoving(cars.get(i), distanceLength, finishList, start));		
 			race.add(i,new Thread(carRace.get(i)));
 			race.get(i).start();
-		}		
+		}
+		
+		Thread ref=new Thread(new Refery(carRace,start));
+		ref.setDaemon(true);
+		ref.start();
 	
 		for (int i=0;i<cars.size();i++){			
 			try {
@@ -47,7 +51,6 @@ public class RaceControl implements Runnable{
 		}
 		
 		System.out.println(finishList);	
-		carsPull.shutdownNow();
 		System.out.println("Race finished");
 
 	}
