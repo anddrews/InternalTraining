@@ -1,3 +1,4 @@
+import java.sql.Time;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
@@ -28,18 +29,17 @@ public class Runner {
 			array[i]=new Integer(rnd.nextInt(100000000));			
 		}
 		array1=Arrays.copyOf(array,array.length);
-		Date st1=new Date();
+		long st1=System.currentTimeMillis();
 		Arrays.sort(array1);
-		Date fin1=new Date();
+		long fin1=System.currentTimeMillis();
 
-		System.out.println("Once thread sort:"+(fin1.getTime()-st1.getTime()));
-		
+		System.out.println("Once thread sort:"+(fin1-st1));
 		SortBigArray<Integer> arr=new SortBigArray<>(array, comparator);		
 		try {		
-			Date st=new Date();
+			long st=System.currentTimeMillis();
 			arr.sort();
-			Date fin=new Date();			
-			System.out.println("Multithread sort:"+(fin.getTime()-st.getTime()));
+			long fin=System.currentTimeMillis();			
+			System.out.println("Multithread sort:"+(fin-st));
 					} catch (Exception e) {
 			e.printStackTrace();
 		}

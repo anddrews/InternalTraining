@@ -32,26 +32,25 @@ public class SortBigArray<T extends Object> {
 		T[] result=(T[])new Object[array.length];
 		while(indexFirst<middlPoint || indexSecond<array.length){				
 			if(indexFirst==middlPoint){
-				result[indexMain]=array[indexSecond];
-				indexSecond++;
+				System.arraycopy(array, indexSecond, result, indexMain, array.length-indexSecond);
+				indexSecond=array.length;
 			}				
 			else if(indexSecond==array.length){
-				result[indexMain]=array[indexFirst];
-				indexFirst++;
+				System.arraycopy(array, indexFirst, result, indexMain, middlPoint-indexFirst);
+				indexFirst=middlPoint;
 			}
 			else{
 				int compare=comparator.compare(array[indexFirst], array[indexSecond]);
 				if(compare<=0){
-					result[indexMain]=array[indexFirst];
-					indexFirst++;
+					result[indexMain]=array[indexFirst++];
 				}
 				else{
-					result[indexMain]=array[indexSecond];
-					indexSecond++;	
+					result[indexMain]=array[indexSecond++];
 				}				
 			}
 			indexMain++;
 		}
+//		System.out.println(Arrays.toString(result));
 		return result;
 	}
 	

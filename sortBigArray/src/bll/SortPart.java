@@ -18,6 +18,7 @@ public class SortPart<T extends Object> extends Thread {
 	}
 	public void run() {
 		Arrays.sort(arrayToSort, startIndex, stopIndex, comparator);
+//		System.out.println(Arrays.toString(arrayToSort));
 	}	
 
 }
