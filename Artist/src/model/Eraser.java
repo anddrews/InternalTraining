@@ -5,17 +5,20 @@ import java.util.Random;
 public class Eraser implements Runnable {
 	
 	private Object syncroObject;
-	
+	private boolean isEnd;
 	
 	public Eraser(Object syncroObject) {
 		this.syncroObject = syncroObject;
 	}
-
+	
+	public void endWork(){
+		this.isEnd=true;
+	}
 
 	@Override
 	public void run() {
 		
-		while (true) {
+		while (!this.isEnd) {
 			synchronized (this.syncroObject){		
 				try {					
 					System.out.println(this.syncroObject.getClass().getSimpleName()+" erasing");					

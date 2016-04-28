@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/books" 
+	xmlns:psg="http://www.example.org/books">
+	
+	<element name="books">
+		<complexType>
+			<all>
+				<element name="book" minOccurs="1" maxOccurs="unbounded" type="psg:Book"/>
+			</all>
+		</complexType>
+	</element>
+	<complexType name="Book">
+		<sequence>
+			<element name="passendger" type="psg:Info"/>
+			<element name="origin" type="psg:Place"/>
+			<element name="destination" type="psg:Place"/>
+		</sequence>
+		<attribute name="id" type="integer" use="required"></attribute>
+	</complexType>
+	<complexType name="Info">
+		<sequence>
+			<element name="firstname" type="string"></element>
+			<element name="lastname" type="string"></element>
+			<element name="adress" type="psg:Adress"></element>
+		</sequence>
+	</complexType>
+	<complexType name="Place">
+		<sequence>
+			<element name="place" type="string"></element>
+			<element name="date" type="date"></element>
+			<element name="time" type="time"></element>
+		</sequence>		
+	</complexType>
+	<complexType name="Adress">
+		<sequence>
+			<element name="city" type="string"></element>
+			<element name="street" type="string"></element>
+			<element name="house" type="integer"></element>
+		</sequence>
+	</complexType>
+</schema>

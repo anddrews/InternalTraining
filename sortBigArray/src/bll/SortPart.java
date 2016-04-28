@@ -16,9 +16,8 @@ public class SortPart<T extends Object> extends Thread {
 		this.startIndex=startIndex;
 		this.stopIndex=stopIndex;		
 	}
-	public void run() {
+	public void run() {//sort only part of array by reference
 		Arrays.sort(arrayToSort, startIndex, stopIndex, comparator);
-//		System.out.println(Arrays.toString(arrayToSort));
 	}	
 
 }

@@ -1,11 +1,8 @@
-import java.sql.Time;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.Random;
 
 import bll.SortBigArray;
-import bll.Test;
 
 
 
@@ -40,7 +37,7 @@ public class Runner {
 			arr.sort();
 			long fin=System.currentTimeMillis();			
 			System.out.println("Multithread sort:"+(fin-st));
-					} catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 

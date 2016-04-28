@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psg:books  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns:psg="http://www.example.org/books"
+	     xsi:noNamespaceSchemaLocation="books.xsd">
+	<book id="1">
+		<passendger>
+			<firstname>Igor</firstname>	
+			<lastname>Nesterenia</lastname>
+			<adress>
+				<city>Gomel</city>
+				<street>Sovetskaya</street>
+				<house>3</house>
+			</adress>
+		</passendger>
+			<origin>
+				<place>Minsk</place>
+				<date>2016-05-14</date>
+				<time>10:22:00</time>
+			</origin>
+			<destination>
+				<place>Milan</place>
+				<date>2016-05-15</date>
+				<time>11:34:00</time>
+			</destination>
+	</book><book id="2">
+		<passendger>
+			<firstname>Alex</firstname>	
+			<lastname>Petrov</lastname>
+			<adress>
+				<city>Gomel</city>
+				<street>Barikina</street>
+				<house>32</house>
+			</adress>
+		</passendger>
+			<origin>
+				<place>Minsk</place>
+				<date>2016-05-22</date>
+				<time>11:22:00</time>
+			</origin>
+			<destination>
+				<place>Atlanta</place>
+				<date>2016-05-23</date>
+				<time>19:34:00</time>
+			</destination>
+	</book><book id="3">
+		<passendger>
+			<firstname>Polina</firstname>	
+			<lastname>Kondratenko</lastname>
+			<adress>
+				<city>Gomel</city>
+				<street>Kozhara</street>
+				<house>1</house>
+			</adress>
+		</passendger>
+			<origin>
+				<place>Minsk</place>
+				<date>2016-05-14</date>
+				<time>10:22:00</time>
+			</origin>
+			<destination>
+				<place>Paris</place>
+				<date>2016-05-15</date>
+				<time>11:34:00</time>
+			</destination>
+	</book>
+</psg:books>

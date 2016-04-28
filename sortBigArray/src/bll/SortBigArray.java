@@ -1,8 +1,6 @@
 package bll;
 
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Date;
 
 public class SortBigArray<T extends Object> {
 	T[] array;
@@ -31,26 +29,26 @@ public class SortBigArray<T extends Object> {
 		int indexMain=0;
 		T[] result=(T[])new Object[array.length];
 		while(indexFirst<middlPoint || indexSecond<array.length){				
-			if(indexFirst==middlPoint){
+			if(indexFirst==middlPoint){// if first part of array already is stoped we copy the balance 
+										//of second part in result array
 				System.arraycopy(array, indexSecond, result, indexMain, array.length-indexSecond);
 				indexSecond=array.length;
 			}				
-			else if(indexSecond==array.length){
+			else if(indexSecond==array.length){// if second part of array already is stoped we copy the balance 
+										//of first part in result array
 				System.arraycopy(array, indexFirst, result, indexMain, middlPoint-indexFirst);
 				indexFirst=middlPoint;
 			}
 			else{
 				int compare=comparator.compare(array[indexFirst], array[indexSecond]);
 				if(compare<=0){
-					result[indexMain]=array[indexFirst++];
+					result[indexMain++]=array[indexFirst++];
 				}
 				else{
-					result[indexMain]=array[indexSecond++];
+					result[indexMain++]=array[indexSecond++];
 				}				
 			}
-			indexMain++;
 		}
-//		System.out.println(Arrays.toString(result));
 		return result;
 	}
 	

@@ -37,7 +37,6 @@ public class VehicleMoving implements Runnable {
                     if(this.isDiscv){
                     	Thread.currentThread().interrupt();
                     }
-//                    log.info(name + " " + distance);
                 }
                 if(!Thread.currentThread().isInterrupted() && currentPosition>=this.distanceLength){
                 	this.finishList.setFinisher(vehicle);

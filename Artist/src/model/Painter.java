@@ -5,16 +5,20 @@ import java.util.Random;
 public class Painter implements Runnable {
 	
 	private Object syncroObject;
-	
+	private boolean isEnd;
 	
 	public Painter(Object syncroObject) {
 		this.syncroObject = syncroObject;
+	}
+	
+	public void endWork(){
+		this.isEnd=true;
 	}
 
 
 	@Override
 	public void run() {		
-		while (true) {
+		while (!this.isEnd) {
 			synchronized (this.syncroObject){			
 				try {					
 					System.out.println(this.syncroObject.getClass().getSimpleName()+" painting");					

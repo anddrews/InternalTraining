@@ -5,13 +5,16 @@ import model.Painter;
 public class Runner {
 
 	public static void main(String[] args) {
-			Artist  art=new Artist();
-			Eraser erase=new Eraser(art);
-			Painter painter = new Painter(art);
-			Thread er=new Thread(erase);
-			Thread pain=new Thread(painter);
-			er.start();
-			pain.start();		
+			
+			try {
+				Artist  art=new Artist("Picasso");
+				art.startWork();
+				Thread.sleep(5000);
+				art.stopWork();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 }
