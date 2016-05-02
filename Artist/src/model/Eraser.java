@@ -21,8 +21,9 @@ public class Eraser implements Runnable {
 		while (!this.isEnd) {
 			synchronized (this.syncroObject){		
 				try {					
-					System.out.println(this.syncroObject.getClass().getSimpleName()+" erasing");					
-					Thread.sleep(new Random().nextInt(1500));									
+					System.out.println(this.syncroObject.getClass().getSimpleName()+" start erasing");	
+					Thread.sleep(new Random().nextInt(1500));				
+					System.out.println(this.syncroObject.getClass().getSimpleName()+" stop erasing");					
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

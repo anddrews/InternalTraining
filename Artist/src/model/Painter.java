@@ -21,8 +21,9 @@ public class Painter implements Runnable {
 		while (!this.isEnd) {
 			synchronized (this.syncroObject){			
 				try {					
-					System.out.println(this.syncroObject.getClass().getSimpleName()+" painting");					
-					Thread.sleep(new Random().nextInt(1500));					
+					System.out.println(this.syncroObject.getClass().getSimpleName()+" start painting");
+					Thread.sleep(new Random().nextInt(1500));
+					System.out.println(this.syncroObject.getClass().getSimpleName()+" stop painting");					
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
