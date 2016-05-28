@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="loginForm" type="actionsForms.LoginForm"/>
+    </form-beans>
+
+    <action-mappings>
+
+        <action path="/login"
+                type="actions.LoginAction"
+                name="loginForm"
+                scope="request"
+                validate="true"
+                input="/WEB-INF/views/login.jsp">
+
+            <forward name="success" path="/reservation.html"/>
+        </action>
+        
+         <action path="/main"
+        		type="actions.MainAction">
+        	<forward name="success" path="/WEB-INF/views/login.jsp"/>	
+        </action>
+        <action path="/reservation"
+        		type="actions.Reservation">
+        	<forward name="success" path="/WEB-INF/views/reservation.jsp"/>	
+        </action>
+    
+    </action-mappings>
+
+    <message-resources parameter="Application"/>
+
+</struts-config>
