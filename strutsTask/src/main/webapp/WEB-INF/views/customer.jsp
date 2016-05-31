@@ -2,5 +2,5 @@
 
 <tiles:insert definition="layout">
 	<tiles:put name="body"
-		value="/WEB-INF/views/bodies/reservation-body.jsp" />
+		value="/WEB-INF/views/bodies/customer-body.jsp" />
 </tiles:insert>

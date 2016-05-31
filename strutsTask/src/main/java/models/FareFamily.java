@@ -2,12 +2,15 @@ package models;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name="FareFamily")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class FareFamily {
 	@XmlAttribute(name="FareFamilyCode")
 	private String fareFamilyCode;
@@ -26,6 +29,23 @@ public class FareFamily {
 	public String toString() {
 		return "\nFareFamily [fareFamilyCode=" + fareFamilyCode + ", ancillaryComponents=" + ancillaryComponents + "]";
 	}
+
+	public String getFareFamilyCode() {
+		return fareFamilyCode;
+	}
+
+	public void setFareFamilyCode(String fareFamilyCode) {
+		this.fareFamilyCode = fareFamilyCode;
+	}
+
+	public List<AncillaryAirComponent> getAncillaryComponents() {
+		return ancillaryComponents;
+	}
+
+	public void setAncillaryComponents(List<AncillaryAirComponent> ancillaryComponents) {
+		this.ancillaryComponents = ancillaryComponents;
+	}
+	
 
 		
 	

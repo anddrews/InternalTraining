@@ -1,38 +1,53 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-
-<!DOCTYPE struts-config PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
-    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
 
 <struts-config>
+	<message-resources parameter="i18n.messages" />
+	<form-beans>
+		<form-bean name="loginForm" type="actionsForms.LoginForm" />
+	</form-beans>
+	<form-beans>
+		<form-bean name="logoutForm" type="actionsForms.LogoutForm" />
+	</form-beans>
+	<form-beans>
+		<form-bean name="localForm" type="actionsForms.LocalForm" />
+	</form-beans>
+	<action-mappings>
+		<action path="/main" type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/views/main.jsp" />
 
-    <form-beans>
-        <form-bean name="loginForm" type="actionsForms.LoginForm"/>
-    </form-beans>
+		<action path="/localRU" type="actions.LocalActionRu" name="localForm">
+			<forward name="success" path="/" />
+		</action>
 
-    <action-mappings>
+		<action path="/localENG" type="actions.LocalActionEn" name="localForm">
+			<forward name="success" path="/" />
+		</action>
 
-        <action path="/login"
-                type="actions.LoginAction"
-                name="loginForm"
-                scope="request"
-                validate="true"
-                input="/WEB-INF/views/login.jsp">
+		<action path="/login" type="actions.LoginAction" name="loginForm"
+			scope="request" validate="true" input="/">
+			<forward name="success" path="/registered/reservation.html"
+				redirect="true" />
+			<forward name="back" path="/" redirect="true" />
+		</action>
 
-            <forward name="success" path="/reservation.html"/>
-        </action>
-        
-         <action path="/main"
-        		type="actions.MainAction">
-        	<forward name="success" path="/WEB-INF/views/login.jsp"/>	
-        </action>
-        <action path="/reservation"
-        		type="actions.Reservation">
-        	<forward name="success" path="/WEB-INF/views/reservation.jsp"/>	
-        </action>
-    
-    </action-mappings>
+		<action path="/logout" type="actions.LogoutAction" name="logoutForm"
+			scope="request" input="/WEB-INF/views/main.jsp">
+			<forward name="success" path="/main.html" redirect="true" />
+		</action>
 
-    <message-resources parameter="Application"/>
+		<action path="/registered/reservation" type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/views/reservation.jsp" />
+		<action path="/registered/customer" type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/views/customer.jsp" />
+		<action path="/registered/fareFamily" type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/views/fareFamily.jsp" />
+			
+	</action-mappings>
 
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-def.xml" />
+	</plug-in>
 </struts-config>

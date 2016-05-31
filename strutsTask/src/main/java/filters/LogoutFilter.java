@@ -8,14 +8,12 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import constants.Constants;
-import models.User;
-@WebFilter("/registered/*")
-public class MainFilter implements Filter{
+import com.sun.corba.se.impl.ior.GenericTaggedComponent;
+
+public class LogoutFilter implements Filter{
 
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -26,20 +24,13 @@ public class MainFilter implements Filter{
 			throws IOException, ServletException {
 		HttpServletRequest req=(HttpServletRequest) arg0;
 		HttpServletResponse resp=(HttpServletResponse) arg1;
-		User user=(User) req.getSession().getAttribute(Constants.USER);
-		boolean isUser=!("".equals(user) || user==null);
-		if(!isUser){
-			resp.sendRedirect(req.getContextPath()+"/");		
-		}
-		else{
-			arg2.doFilter(arg0, arg1);
-		}
-
+		req.getSession().invalidate();
+		resp.sendRedirect(req.getContextPath());
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }

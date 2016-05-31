@@ -1,9 +1,12 @@
 package models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name="Payment")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Payment {
 	@XmlAttribute(name="AmountPaid")
 	private String amountPaid;
@@ -16,7 +19,6 @@ public class Payment {
 	}
 
 	public Payment(String amountPaid, String formOfPaymentTypeCode, String currencyCode) {
-		super();
 		this.amountPaid = amountPaid;
 		this.formOfPaymentTypeCode = formOfPaymentTypeCode;
 		this.currencyCode = currencyCode;
@@ -26,6 +28,30 @@ public class Payment {
 	public String toString() {
 		return "\nPayment [amountPaid=" + amountPaid + ", formOfPaymentTypeCode=" + formOfPaymentTypeCode
 				+ ", currencyCode=" + currencyCode + "]";
+	}
+
+	public String getAmountPaid() {
+		return amountPaid;
+	}
+
+	public void setAmountPaid(String amountPaid) {
+		this.amountPaid = amountPaid;
+	}
+
+	public String getFormOfPaymentTypeCode() {
+		return formOfPaymentTypeCode;
+	}
+
+	public void setFormOfPaymentTypeCode(String formOfPaymentTypeCode) {
+		this.formOfPaymentTypeCode = formOfPaymentTypeCode;
+	}
+
+	public String getCurrencyCode() {
+		return currencyCode;
+	}
+
+	public void setCurrencyCode(String currencyCode) {
+		this.currencyCode = currencyCode;
 	}
 	
 	

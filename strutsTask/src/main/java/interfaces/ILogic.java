@@ -1,5 +1,8 @@
 package interfaces;
 
+import models.User;
+
 public interface ILogic {
-	boolean checkLogin(String login,String password);
+	boolean checkLogin(User user);
+	boolean isCanMove(boolean isUser, String refer);
 }

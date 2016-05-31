@@ -36,7 +36,7 @@ public class Properties {
 	
 
 	public static String getPathToXml() {
-		return null;
+		return "D:\\epam\\InternalTraining\\Reservation.xml";
 	}
 	
 	

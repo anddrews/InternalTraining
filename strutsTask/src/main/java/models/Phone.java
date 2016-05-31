@@ -1,9 +1,12 @@
 package models;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name="Phone")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Phone {
 	@XmlAttribute(name="PhoneNumber")
 	private String phone;
@@ -18,6 +21,14 @@ public class Phone {
 	@Override
 	public String toString() {
 		return "\nPhone [phone=" + phone + "]";
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	
