@@ -27,7 +27,7 @@ public class LoginForm extends ActionForm{
 	}		
 	
 	public User getUser(){
-		return new User(login,passw);
+		return new User(login);
 	}
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {

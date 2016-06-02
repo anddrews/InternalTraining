@@ -12,16 +12,19 @@
 </span>
 <logic:empty name="user" scope="session">
 	<html:form action="login" focus="login">
-		<div>
-			<bean:message key="registration.jsp.login" />
-			<html:text property="login" size="20" />
-			<span class="error"><html:errors property="login" /></span>
+		<div class="input-group col-lg-3">
+			<span class="input-group-addon" id="sizing-addon2"> <bean:message
+					key="registration.jsp.login" /></span>
+			<html:text property="login" size="20" styleClass="form-control" />
 		</div>
-		<div>
-			<bean:message key="registration.jsp.password" />
-			<html:text property="passw" size="20" />
-			<span class="error"><html:errors property="passw" /></span>
+		<span class="error"><html:errors property="login" /></span>
+		<div class="input-group col-lg-3">
+			<span class="input-group-addon" id="sizing-addon2"> <bean:message
+					key="registration.jsp.password" /></span>
+			<html:text property="passw" size="20" styleClass="form-control" />
+
 		</div>
+		<span class="error"><html:errors property="passw" /></span>
 
 		<html:submit property="submit">
 			<bean:message key="registration.jsp.loginButton" />
@@ -39,21 +42,20 @@
 	<h2>
 		<bean:write name="user" property="login" scope="session" />
 	</h2>
-	<span class="nav-refer"> <html:link
+	<ul class="nav nav-pills">
+		<li role="presentation" class="active"><html:link
 			action="/registered/reservation">
-		Reservation
-	</html:link>
-	</span>
-	<span class="nav-refer"> <html:link
+		<bean:message key="menu.jsp.refer.reservation" />
+	</html:link></li>
+		<li role="presentation"><html:link
 			action="/registered/customer">
-		Customer
-	</html:link>
-	</span>
-	<span class="nav-refer"> <html:link
+		<bean:message key="menu.jsp.refer.customer" />
+	</html:link></li>
+		<li role="presentation"><html:link
 			action="/registered/fareFamily">
-		FairFamily
-	</html:link>
-	</span>
+		<bean:message key="menu.jsp.refer.farefamily" />
+	</html:link></li>
+	</ul>
 </logic:notEmpty>
 
 

@@ -17,7 +17,7 @@ public class LocalActionEn  extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		response.setLocale(Locale.ENGLISH);
+		setLocale(request,Locale.ENGLISH);
 		return mapping.findForward("success");
 	}
 

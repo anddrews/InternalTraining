@@ -5,18 +5,21 @@
 
 <struts-config>
 	<message-resources parameter="i18n.messages" />
+	<controller nocache="true"/>
 	<form-beans>
 		<form-bean name="loginForm" type="actionsForms.LoginForm" />
-	</form-beans>
-	<form-beans>
 		<form-bean name="logoutForm" type="actionsForms.LogoutForm" />
-	</form-beans>
-	<form-beans>
 		<form-bean name="localForm" type="actionsForms.LocalForm" />
 	</form-beans>
 	<action-mappings>
 		<action path="/main" type="org.apache.struts.actions.ForwardAction"
 			parameter="/WEB-INF/views/main.jsp" />
+		<action path="/registered/reservation" type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/views/reservation.jsp" />
+		<action path="/registered/customer" type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/views/customer.jsp" />
+		<action path="/registered/fareFamily" type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/views/fareFamily.jsp" />
 
 		<action path="/localRU" type="actions.LocalActionRu" name="localForm">
 			<forward name="success" path="/" />
@@ -37,14 +40,7 @@
 			scope="request" input="/WEB-INF/views/main.jsp">
 			<forward name="success" path="/main.html" redirect="true" />
 		</action>
-
-		<action path="/registered/reservation" type="org.apache.struts.actions.ForwardAction"
-			parameter="/WEB-INF/views/reservation.jsp" />
-		<action path="/registered/customer" type="org.apache.struts.actions.ForwardAction"
-			parameter="/WEB-INF/views/customer.jsp" />
-		<action path="/registered/fareFamily" type="org.apache.struts.actions.ForwardAction"
-			parameter="/WEB-INF/views/fareFamily.jsp" />
-			
+		
 	</action-mappings>
 
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">

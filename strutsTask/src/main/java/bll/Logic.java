@@ -5,8 +5,8 @@ import models.User;
 
 public class Logic implements ILogic{
 
-	public boolean checkLogin(User user) {		
-		return "user".equals(user.getLogin())&&"user".equals(user.getPassword());
+	public boolean checkLogin(String login, String passw) {		
+		return "user".equals(login)&&"user".equals(passw);
 	}
 
 	public boolean isCanMove(boolean isUser, String refer) {

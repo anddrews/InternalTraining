@@ -1,8 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/i18n/messages.properties=UTF-8
 encoding//src/main/java/i18n/messages_en.properties=UTF-8
-encoding//src/main/java/i18n/messages_ru.properties=UTF-8
-encoding//src/main/webapp/WEB-INF/layout/layout.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/layout/layout.jsp=ISO-8859-1
 encoding//src/main/webapp/WEB-INF/views/bodies/customer-body.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/bodies/fareFamily-body.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/bodies/reservation-body.jsp=UTF-8

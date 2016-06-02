@@ -12,6 +12,11 @@
 		<name>getReservation</name>
 		<tag-class>tags.TagReservation</tag-class>
 		<body-content>empty</body-content>
+		<attribute>
+			<name>component</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
 	</tag>
 
 

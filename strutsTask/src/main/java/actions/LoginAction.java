@@ -23,10 +23,11 @@ public class LoginAction extends Action {
 		ActionErrors errors = new ActionErrors();
 		try {
 			LoginForm loginForm = (LoginForm) form;
-			User user = loginForm.getUser();
+			String login = loginForm.getLogin();
+			String passw = loginForm.getPassw();
 			ILogic logic = new LogicFabric().getLogic();
-			if (logic.checkLogin(user)) {
-				request.getSession().setAttribute("user", user);
+			if (logic.checkLogin(login,passw)) {
+				request.getSession().setAttribute("user", new User(login));
 				return mapping.findForward("success");
 			} else {
 				errors.add("incorrectLogin", new ActionMessage("registration.error.incorrectLogin"));
