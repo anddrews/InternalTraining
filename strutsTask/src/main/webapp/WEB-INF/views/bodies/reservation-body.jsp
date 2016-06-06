@@ -3,7 +3,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="custom.tld" prefix="datalex"%>
 
-<datalex:getReservation component="reservation" />
+<datalex:getReservation var="reservation" component="reservation" />
 
 <div class="container">
 	<div class="table-responsive">

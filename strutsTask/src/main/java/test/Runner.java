@@ -1,28 +1,48 @@
 package test;
 
-import java.io.File;
+import java.util.Properties;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 
-import models.Reservation;
+import com.epam.by.IFacesHome.ReservationEJBHome;
+import com.epam.by.IFacesRemote.ReservationEJB;
+import com.epam.by.pojo.model.reservation.Reservation;
+
+import bll.EjbContext;
+import constants.Constants;
 
 public class Runner {
 
 	public static void main(String[] args) {
-		 try {
+		Reservation result=null;
+		
+		// preparing properties for constructing an InitialContext object
+				Properties properties = new Properties();
+				properties.put(Context.INITIAL_CONTEXT_FACTORY,
+						"org.jnp.interfaces.NamingContextFactory");
+				properties.put(Context.PROVIDER_URL, "jnp://localhost:1099"); 
+				try {
+					// Get an initial context
+					InitialContext jndiContext = new InitialContext(properties);
+					System.out.println("Got context");
 
-			 	File file = new File("D:\\epam\\InternalTraining\\Reservation.xml");
-				JAXBContext jaxbContext = JAXBContext.newInstance(Reservation.class);
+					// Get a reference to the Bean
+					Object ref = jndiContext.lookup("Adder");
+					System.out.println("Got reference");
 
-				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-				Reservation customer = (Reservation) jaxbUnmarshaller.unmarshal(file);
-				System.out.println(customer);
-
-			  } catch (JAXBException e) {
-				e.printStackTrace();
-			  }
+					// Get a reference from this to the Bean's Home interface
+					ReservationEJBHome home = (ReservationEJBHome) PortableRemoteObject.narrow(ref,
+							ReservationEJBHome.class);
+					ReservationEJB logicEjb = home.create();
+					result=logicEjb.getReservation();
+					System.out.println(result);
+				} catch (Exception e) {
+					e.printStackTrace(); 
+				}	
+		
+		
 	}
 
 }

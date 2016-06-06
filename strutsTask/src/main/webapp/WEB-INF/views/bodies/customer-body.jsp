@@ -3,22 +3,22 @@
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@ taglib uri="custom.tld" prefix="datalex"%>
 
-<datalex:getReservation component="customer"/>
+<datalex:getReservation component="customer" var="customer"/>
 
 <div class="container">
 	<div class="table-responsive">
 
 		<div class="input-group col-lg-4">
 			<div class="input-group-addon"><bean:message key="customer.jsp.code"/></div>
-			<div class="input-group-addon"><bean:write name="customer" property="name"/></div>
+			<div class="input-group-addon"><bean:write name="customer" property="name"/></div> 
 		</div>
-		<div class="input-group col-lg-4">
+		 <div class="input-group col-lg-4">
 			<div class="input-group-addon"><bean:message key="customer.jsp.email"/></div>
-			<div class="input-group-addon"><bean:write name="customer" property="email.email"/></div>
+			<div class="input-group-addon"><bean:write name="customer" property="email.email"/></div> 
 		</div>
 		<div class="input-group col-lg-4">
 			<div class="input-group-addon"><bean:message key="customer.jsp.phone"/></div>
-			<div class="input-group-addon"><bean:write name="customer" property="phone.phone"/></div>
+			<div class="input-group-addon"><bean:write name="customer" property="phone.phone"/></div> 
 		</div>
 		<table class="table">
 			<thead>
@@ -41,5 +41,5 @@
 				</logic:iterate>
 			</tbody>
 		</table>
-	</div>
+	</div>  
 </div>
