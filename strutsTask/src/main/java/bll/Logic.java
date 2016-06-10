@@ -1,11 +1,14 @@
 package bll;
 
+import com.epam.by.pojo.model.LoginInformation;
+
 import interfaces.ILogic;
 
 public class Logic implements ILogic{
 
-	public boolean checkLogin(String login, String passw) {		
-		return "user".equals(login)&&"user".equals(passw);
+	public LoginInformation checkLogin(String login, String passw) {
+		
+		return new LoginInformation("user".equals(login)&&"user".equals(passw),"");
 	}
 
 	

@@ -25,11 +25,11 @@
 
 		</div>
 		<span class="error"><html:errors property="passw" /></span>
+		<span class="error"><html:errors property="incorrectLogin" /></span>
 
 		<html:submit property="submit">
 			<bean:message key="registration.jsp.loginButton" />
 		</html:submit>
-		<span class="error"><html:errors property="incorrectLogin" /></span>
 
 	</html:form>
 </logic:empty>
@@ -54,6 +54,10 @@
 		<li role="presentation"><html:link
 			action="/registered/fareFamily">
 		<bean:message key="menu.jsp.refer.farefamily" />
+	</html:link></li>
+	<li role="presentation"><html:link
+			action="/registered/restService">
+		<bean:message key="menu.jsp.refer.restPage" />
 	</html:link></li>
 	</ul>
 </logic:notEmpty>

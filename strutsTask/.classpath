@@ -28,6 +28,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/main/java/lib/strutsEJB.jar"/>
+	<classpathentry kind="lib" path="D:/strutsEJB.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

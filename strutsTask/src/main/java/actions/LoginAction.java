@@ -10,6 +10,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+import com.epam.by.pojo.model.LoginInformation;
+
 import actionsForms.LoginForm;
 import fabrics.LogicFabric;
 import interfaces.ILogic;
@@ -26,11 +28,18 @@ public class LoginAction extends Action {
 			String login = loginForm.getLogin();
 			String passw = loginForm.getPassw();
 			ILogic logic = new LogicFabric().getLogic();
-			if (logic.checkLogin(login,passw)) {
+			LoginInformation loginInformation=logic.checkLogin(login, passw);
+			if (loginInformation.isLogin()) {
 				request.getSession().setAttribute("user", new User(login));
 				return mapping.findForward("success");
 			} else {
-				errors.add("incorrectLogin", new ActionMessage("registration.error.incorrectLogin"));
+				if("databaseProblem".equals(loginInformation.getAttach())){
+					
+					errors.add("incorrectLogin", new ActionMessage("registration.error.databaseProblem"));					
+				}
+				else{
+				errors.add("incorrectLogin", new ActionMessage("registration.error.incorrectLogin"));					
+				}
 				return mapping.findForward("back");
 			}
 		} finally {
