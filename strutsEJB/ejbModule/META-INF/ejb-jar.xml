@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar id="ejb-jar_ID" version="2.1"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd">
+	<description>Your first EJB application </description>
+	<display-name>strutsEJB</display-name>
+	<enterprise-beans>
+		<session>
+			<ejb-name>LogicEJBName</ejb-name>
+			<home>com.epam.by.IFacesHome.LogicEJBHome</home>
+			<remote>com.epam.by.IFacesRemote.LogicEJB</remote>
+			<ejb-class>com.epam.by.Beans.LogicBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+		</session>
+		<session>
+			<ejb-name>ReservationEJBName</ejb-name>
+			<home>com.epam.by.IFacesHome.ReservationEJBHome</home>
+			<remote>com.epam.by.IFacesRemote.ReservationEJB</remote>
+			<ejb-class>com.epam.by.Beans.ReservationBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Bean</transaction-type>
+		</session>
+	</enterprise-beans>
+</ejb-jar>
